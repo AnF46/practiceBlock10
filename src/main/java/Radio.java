@@ -7,10 +7,10 @@ public class Radio {
     }
 
     public void setVolumeLevel(int newVolumeLevel) {
-        if (volumeLevel > 100) {
+        if (newVolumeLevel > 100) {
            return;
         }
-        if (volumeLevel < 0) {
+        if (newVolumeLevel < 0) {
             return;
         }
         volumeLevel = newVolumeLevel;
