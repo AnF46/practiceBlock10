@@ -71,5 +71,62 @@ public class RadioTest {
         Assertions.assertEquals(expected, service.getVolumeLevel());
     }
 
+    @Test
+    public void setStationAboveNineTest() {
+        service.setCurrentStation(10);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected,service.getCurrentStation());
+    }
+
+    @Test
+    public void setStationBelowZeroTest() {
+        service.setCurrentStation(-1);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, service.getCurrentStation());
+    }
+
+    @Test
+    public void increaseStationTest() {
+        service.setCurrentStation(5);
+        service.increaseStation();
+
+        int expected = 6;
+
+        Assertions.assertEquals(expected, service.getCurrentStation());
+    }
+
+    @Test
+    public void increaseStationAboveNineTest() {
+        service.setCurrentStation(9);
+        service.increaseStation();
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, service.getCurrentStation());
+    }
+
+    @Test
+    public void nextStationAfterZeroTest() {
+        service.setCurrentStation(0);
+        service.decreaseStation();
+
+        int expected = 9;
+
+        Assertions.assertEquals(expected, service.getCurrentStation());
+    }
+
+    @Test
+    public void decreaseStationTest() {
+        service.setCurrentStation(5);
+        service.decreaseStation();
+
+        int expected = 4;
+
+        Assertions.assertEquals(expected, service.getCurrentStation());
+    }
 
 }
